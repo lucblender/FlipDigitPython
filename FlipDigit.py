@@ -17,27 +17,49 @@ class SerialSpeed(Enum):
     S_57600     = 0x06
     S_115200    = 0x07
     
+class SyncMultipleFlipDigits:
+    
+    def __init__(self, digits):
+        self.__digits = digits
+        
+        for digit in self.__digits:
+            digit._FlipDigit__set_in_sync()
+        
+    def sync_refresh(self):
+        data = array.array('B', [0x80, 0x82, 0x8f]).tobytes()
+        FlipDigit._FlipDigit__ser .write(data)
+        
+        
+    
 class FlipDigit:
     
-    ser = None
+    __ser = None
 
     def __init__(self, port, speed=SerialSpeed.S_9600, addr=255):
         self.__port = port
         self.__speed = speed
         self.__addr = addr
+        self.__sync = False
         self.open_serial()
         
+    def __set_in_sync(self):        
+        self.__sync = True
+        
     def open_serial(self):    
-        if type(self).ser == None or type(self).ser.is_open == False:
-            type(self).ser = serial.Serial(self.__port, serial_speed_int[self.__speed.value]) 
+        if type(self).__ser == None or type(self).__ser.is_open == False:
+            type(self).__ser = serial.Serial(self.__port, serial_speed_int[self.__speed.value]) 
         
     def close(self):
-        if type(self).ser != None and type(self).ser.is_open == True:
-            type(self).ser.close()   
+        if type(self).__ser != None and type(self).__ser.is_open == True:
+            type(self).__ser.close()   
 
     def set_segments(self, segment_code):
-        data = array.array('B', [0x80, 0x89, self.__addr , segment_code, 0x8f]).tobytes()
-        self.ser.write(data)
+        if self.__sync:
+            cmd = 0x8A
+        else:
+            cmd = 0x89
+        data = array.array('B', [0x80, cmd, self.__addr , segment_code, 0x8f]).tobytes()
+        self.__ser.write(data)
         
     def set_number(self, number):
         if number > 9 or number < 0:
@@ -46,7 +68,7 @@ class FlipDigit:
         
     def set_serial_speed(self, speed):        
         data = array.array('B', [0x80, 0x8B, self.__addr , speed.value, 0x8f]).tobytes()
-        self.ser.write(data)
+        self.__ser.write(data)
         self.__speed = speed
         self.close()
         self.open_serial()
@@ -56,6 +78,4 @@ class FlipDigit:
             return    
         data = array.array('B', [0x80, 0x8C, self.__addr , addr, 0x8f]).tobytes()        
         self.__addr = addr   
-        self.ser.write(data)
-
-
+        self.__ser.write(data)
