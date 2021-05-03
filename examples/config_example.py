@@ -1,4 +1,4 @@
-from FlipDigit import *
+from flipdigit import *
 from time import sleep
 
 #---------------------------------------------------------

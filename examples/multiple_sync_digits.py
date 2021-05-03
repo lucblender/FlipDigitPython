@@ -1,4 +1,4 @@
-from FlipDigit import *
+from flipdigit import *
 from time import sleep
 
 # myDigit = FlipDigit('/dev/tty0') #Linux com port
