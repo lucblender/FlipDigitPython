@@ -31,7 +31,7 @@ This use the default configuration of a digit: 9600 baud with adress set as 0xFF
 
 Then you can either send the data code to enable or not a segment following the pattern shown there:
 
-<img src="./examples/7-segments.png" height="100">
+<img src="https://github.com/lucblender/FlipDigitPython/blob/master/examples/7-segments.png" height="100">
 
 The code is then going from _a_ for the lsb to _g_ for the msb
 
@@ -48,8 +48,8 @@ myDigit.set_number(0)
 ``` 
 
 Examples:
-- [segment_example.py](./examples/segment_example.py)
-- [number_example.py](./examples/number_example.py)
+- [segment_example.py](https://github.com/lucblender/FlipDigitPython/blob/master/examples/segment_example.py)
+- [number_example.py](https://github.com/lucblender/FlipDigitPython/blob/master/examples/number_example.py)
 
 ### Configuration
 
@@ -71,7 +71,7 @@ myDigit1 = FlipDigit('COM6',SerialSpeed.S_115200,0x01)
 ``` 
 
 Examples:
-- [config_example.py](./examples/config_example.py)
+- [config_example.py](https://github.com/lucblender/FlipDigitPython/blob/master/examples/config_example.py)
 
 ### Multiple digit
 
@@ -86,7 +86,7 @@ myDigit2.set_number(2)
 ```
 
 Examples:
-- [multiple_digits.py](./examples/multiple_digits.py)
+- [multiple_digits.py](https://github.com/lucblender/FlipDigitPython/blob/master/examples/multiple_digits.py)
 
 ### Multiple digit in sync
 
@@ -110,18 +110,9 @@ mySyncDigits.sync_refresh() # myDigit1 and myDigit2 are refreshed only here!
 ```
 
 Examples:
-- [multiple_sync_digits.py](./examples/multiple_sync_digits.py)
+- [multiple_sync_digits.py](https://github.com/lucblender/FlipDigitPython/blob/master/examples/multiple_sync_digits.py)
 
 
-## License MIT
+## License
 
-License
-Copyright © 2021, Lucas Bonvin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-The Software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the Software.
-
-Except as contained in this notice, the name of Lucas Bonvin shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from Lucas Bonvin.
+Under MIT license. Please see [License File](https://github.com/lucblender/FlipDigitPython/blob/master/LICENSE) for more information.
