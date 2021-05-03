@@ -21,6 +21,7 @@ setup(
     long_description_content_type="text/markdown",
     author='Lucas Bonvin',
     license='MIT',
+    url='https://github.com/lucblender/FlipDigitPython',
     install_requires=['pyserial'],
     python_requires='>=3.6',
     license_file='LICENSE'
