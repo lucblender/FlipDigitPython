@@ -8,8 +8,8 @@ from time import sleep
 #---------------------------------------------------------
 
 
-# myDigit = FlipDigit('/dev/tty0') #Linux com port
-myDigit = FlipDigit('COM6')
+# myDigit = flipdigit.FlipDigit('/dev/tty0') #Linux com port
+myDigit = flipdigit.FlipDigit('COM6')
 
 myDigit.set_serial_speed(SerialSpeed.S_115200)
 myDigit.set_address(0x01)
