@@ -1,9 +1,9 @@
 from flipdigit import *
 from time import sleep
 
-# myDigit = flipdigit.FlipDigit('/dev/tty0') #Linux com port
-myDigit1 = flipdigit.FlipDigit('COM6',SerialSpeed.S_115200,0x01)
-myDigit2 = flipdigit.FlipDigit('COM6',SerialSpeed.S_115200,0x02)
+# myDigit = FlipDigit('/dev/tty0') #Linux com port
+myDigit1 = FlipDigit('COM6',SerialSpeed.S_115200,0x01)
+myDigit2 = FlipDigit('COM6',SerialSpeed.S_115200,0x02)
 
 #---------------------------------------------------------
 #

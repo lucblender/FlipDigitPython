@@ -15,7 +15,7 @@ with open("README.md", "r") as fh:
 setup(
     name='flipdigit',
     packages=find_packages(include=['flipdigit']),
-    version='0.1.2',
+    version='0.1.0',
     description='Small flip digit library',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -24,5 +24,10 @@ setup(
     url='https://github.com/lucblender/FlipDigitPython',
     install_requires=['pyserial'],
     python_requires='>=3.6',
-    license_file='LICENSE'
+    license_file='LICENSE',
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ]
 )

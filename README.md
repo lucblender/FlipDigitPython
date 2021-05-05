@@ -23,15 +23,15 @@ You can simply declare a FlipDigit like so:
 ```python
 from flipdigit import *
 
-# myDigit = flipdigit.FlipDigit('/dev/tty0') 	# Linux com port
-myDigit = flipdigit.FlipDigit('COM6') 		# Windows com port
+# myDigit = FlipDigit('/dev/tty0') 	# Linux com port
+myDigit = FlipDigit('COM6') 		# Windows com port
 ``` 
 
 This use the default configuration of a digit: 9600 baud with adress set as 0xFF.
 
 Then you can either send the data code to enable or not a segment following the pattern shown there:
 
-<img src="https://github.com/lucblender/FlipDigitPython/blob/master/examples/7-segments.png" height="100">
+<img src="https://raw.githubusercontent.com/lucblender/FlipDigitPython/master/examples/7-segments.png" height="100">
 
 The code is then going from _a_ for the lsb to _g_ for the msb
 
@@ -56,7 +56,7 @@ Examples:
 You can easily change the configuration of a digit like so:
 
 ```python
-myDigit = flipdigit.FlipDigit('COM6')	#we use a digit with default configuration
+myDigit = FlipDigit('COM6')	#we use a digit with default configuration
 
 myDigit.set_serial_speed(SerialSpeed.S_115200)
 myDigit.set_address(0x01)
@@ -67,7 +67,7 @@ The digit has now the address '1' and the baudrate is set to 115200 bauds.
 Now the digit need to be used like so:
 
 ```python
-myDigit1 = flipdigit.FlipDigit('COM6',SerialSpeed.S_115200,0x01)
+myDigit1 = FlipDigit('COM6',SerialSpeed.S_115200,0x01)
 ``` 
 
 Examples:
@@ -78,8 +78,8 @@ Examples:
 You can easily use multiple digit since they share a static serial attribute. Be careful, only the first digit serial configuration will be taken in account!
 
 ```python
-myDigit1 = flipdigit.FlipDigit('COM6',SerialSpeed.S_115200,0x01)
-myDigit2 = flipdigit.FlipDigit('COM6',SerialSpeed.S_115200,0x02)
+myDigit1 = FlipDigit('COM6',SerialSpeed.S_115200,0x01)
+myDigit2 = FlipDigit('COM6',SerialSpeed.S_115200,0x02)
 
 myDigit1.set_number(1)
 myDigit2.set_number(2)
