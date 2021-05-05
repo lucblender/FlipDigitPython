@@ -1,12 +1,20 @@
+![licence](https://img.shields.io/pypi/l/flipdigit?color=brightgreen)![latest version](https://img.shields.io/pypi/v/flipdigit?color=brightgreen)
 # FlipDigitPython
 
 ## Description
 
 This library has for goal to control the [Small 7-segment displays](https://flipdots.com/en/products-services/small-7-segment-displays/) by alfazeta.
 
+## Install
+
+The module is available on pip:
+```
+pip install flipdigit
+```
+
 ## Requirement
 
-The only library needed for this to work is pyserial. Basic installation can be made like so:
+If you install the library with pip, the required parckage are installed automatically. If you use the library from sources, the only library needed for this to work is pyserial. Basic installation can be made like so:
 
 ```pip3 install pyserial```
 
