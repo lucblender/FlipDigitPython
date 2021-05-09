@@ -21,9 +21,30 @@ class SyncMultipleFlipDigits:
     
     def __init__(self, digits):
         self.__digits = digits
+        self.__digits_length = len(self.__digits)
         
         for digit in self.__digits:
             digit._FlipDigit__set_in_sync()
+            
+    def set_multiple_digit_number(self, num):
+        sign = 1 if num < 0 else 0
+        num = abs(num)
+        pos_nums = []
+        while num != 0:
+            pos_nums.append(num % 10)
+            num = num // 10
+        pos_nums = pos_nums[:self.__digits_length]
+        if len(pos_nums) < self.__digits_length:        
+            pos_nums = pos_nums+[0]*(self.__digits_length-len(pos_nums))
+            
+        i = 0
+        for digit in self.__digits:
+            digit.set_number(pos_nums[i])
+            i+=1
+        if sign == 1:
+            self.__digits[-1].set_segments(0b1000000)
+            
+        self.sync_refresh()
         
     def sync_refresh(self):
         data = array.array('B', [0x80, 0x82, 0x8f]).tobytes()
